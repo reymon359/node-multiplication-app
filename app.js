@@ -1,16 +1,12 @@
 //requireds
-const fs = require('fs');
+//como lo hemos exportado con el module.exports ahora podemos usarlo
+// const multiplicar = require('./multiplicar/multiplicar');
 
+//ahora mediante destructuracion vamos a inicializar la funcion de creararchivo de multiplicar
+const { crearArchivo } = require('./multiplicar/multiplicar');
 
+let base = 'caa';
 
-let base = 4;
-let data = '';
-
-for (let i = 1; i <= 10; i++) {
-    data += `${base} * ${i} = ${base * i }\n`;
-}
-
-fs.writeFile(`tablas/tabla-${base}.txt`, data, (err) => {
-    if (err) throw err;
-    console.log(`The file tabla-${base}.txt has been saved!`);
-});
+crearArchivo(base)
+    .then(archivo => console.log(`Archivo creado: ${archivo}`))
+    .catch(e => console.log(e));
