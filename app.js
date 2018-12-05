@@ -4,6 +4,7 @@
 //ahora mediante destructuracion vamos a inicializar la funcion de creararchivo de multiplicar
 const { crearArchivo, listarTabla } = require('./multiplicar/multiplicar');
 const argv = require('./config/yargs').argv;
+const colors = require('colors/safe');
 
 //Antes de crear una carpeta de cofig para lo de Yargs
 // const argv = require('yargs')
@@ -38,7 +39,7 @@ switch (comando) {
         break;
     case 'crear':
         crearArchivo(argv.base, argv.limite)
-            .then(archivo => console.log(`Archivo creado: ${archivo}`))
+            .then(archivo => console.log(`Archivo creado:`, colors.green(archivo)))
             .catch(e => console.log(e));
         break;
     default:
