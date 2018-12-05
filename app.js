@@ -1,33 +1,34 @@
 //requireds
 //como lo hemos exportado con el module.exports ahora podemos usarlo
 // const multiplicar = require('./multiplicar/multiplicar');
-
 //ahora mediante destructuracion vamos a inicializar la funcion de creararchivo de multiplicar
 const { crearArchivo, listarTabla } = require('./multiplicar/multiplicar');
+const argv = require('./config/yargs').argv;
 
-const argv = require('yargs')
-    .command('listar', 'Imprime en consola la tabla de multiplicar', {
-        base: {
-            demand: true, //el valor es obligatorio
-            alias: 'b' //se puede introducir como -b
-        },
-        limite: {
-            alias: 'l',
-            default: 10 //valor por defecto
-        }
-    })
-    .command('crear', 'Genera un archivo con la tabla de multiplicar', {
-        base: {
-            demand: true, //el valor es obligatorio
-            alias: 'b' //se puede introducir como -b
-        },
-        limite: {
-            alias: 'l',
-            default: 10 //valor por defecto
-        }
-    })
-    .help()
-    .argv;
+//Antes de crear una carpeta de cofig para lo de Yargs
+// const argv = require('yargs')
+//     .command('listar', 'Imprime en consola la tabla de multiplicar', {
+//         base: {
+//             demand: true, //el valor es obligatorio
+//             alias: 'b' //se puede introducir como -b
+//         },
+//         limite: {
+//             alias: 'l',
+//             default: 10 //valor por defecto
+//         }
+//     })
+//     .command('crear', 'Genera un archivo con la tabla de multiplicar', {
+//         base: {
+//             demand: true, //el valor es obligatorio
+//             alias: 'b' //se puede introducir como -b
+//         },
+//         limite: {
+//             alias: 'l',
+//             default: 10 //valor por defecto
+//         }
+//     })
+//     .help()
+//     .argv;
 
 let comando = argv._[0];
 
